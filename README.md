@@ -2,7 +2,6 @@
 * 实用流程图，多种动画效果
   * [效果图] (#效果图)
   * [支持的动画类型] (#动画类型)
-  * [常用属性] (#常用属性)
   * [常用Api] (#常用Api)
   * [使用方法] (#使用方法)
 
@@ -27,56 +26,6 @@ typedef enum : NSUInteger {
 } ZLFlowChartAnimationType;
 ```
 
-####<a id="常用属性"></a>常用属性
-```objc
-/**
- * 流程图标题
- */
-@property (nonatomic, copy) NSString *title;
-
-/**
- * 流程图数据源
- */
-@property (nonatomic, strong) NSArray<NSString *> *stepArray;
-
-/**
- * 流程图左侧指示线的颜色
- * 默认 orange color
- */
-@property (nonatomic, assign) UIColor *lineColor;
-
-/**
- * 表格未选中行标题默认颜色
- * 默认 black color
- */
-@property (nonatomic, assign) UIColor *normalColor;
-
-/**
- * 表格选中行标题高亮颜色
- * 默认 orange color
- */
-@property (nonatomic, assign) UIColor *highlightedColor;
-
-/**
- * 当前 step 索引
- */
-@property (nonatomic, assign) NSInteger nowStepIndex;
-
-/**
- * 显示时动画类型
- */
-@property (nonatomic, assign) ZLFlowChartAnimationType showAnimationType;
-
-/**
- * 隐藏时动画类型
- */
-@property (nonatomic, assign) ZLFlowChartAnimationType hideAnimationType;
-
-/**
- * call back
- */
-@property (nonatomic, copy) void (^handler)(NSInteger);
-```
 ####<a id="常用Api"></a>常用Api
 ```objc
 /**
