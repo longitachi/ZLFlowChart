@@ -23,13 +23,14 @@
 
 - (IBAction)btnClick:(id)sender
 {
-    ZLFlowChart *flowChart = [[ZLFlowChart alloc] initWithTitle:@"test" stepArray:@[@"第1步", @"第2步", @"第3步", @"第4步", @"第5步", @"第6步", @"第7步", @"第8步", @"第9步", @"第10步"] showAnimationType:ZLFlowChartAnimationRotation | ZLFlowChartAnimationZoomIn hideAnimationType:ZLFlowChartAnimationZoomOut | ZLFlowChartAnimationFade];
+    UIButton *btn = (UIButton *)sender;
+    ZLFlowChart *flowChart = [[ZLFlowChart alloc] initWithTitle:@"流程图" stepArray:@[@"第1步", @"第2步", @"第3步", @"第4步", @"第5步", @"第6步", @"第7步", @"第8步", @"第9步", @"第10步"] showAnimationType:ZLFlowChartAnimationRotation | ZLFlowChartAnimationZoomIn hideAnimationType:ZLFlowChartAnimationZoomOut | ZLFlowChartAnimationFade];
     //设置点击回调
     [flowChart setHandler:^(NSInteger index) {
-        NSLog(@"选中的步骤:%ld", index);
+        [btn setTitle:[NSString stringWithFormat:@"选中的步骤下标:%ld", index] forState:UIControlStateNormal];
     }];
     //显示时候直接设置当前流程索引
-    [flowChart showWithSelectStepIndex:5];
+    [flowChart showWithSelectStepIndex:0];
     /*
      不需要设置索引则直接调用
      [flowChart show];
