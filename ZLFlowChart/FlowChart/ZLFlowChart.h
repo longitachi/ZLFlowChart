@@ -20,7 +20,7 @@ typedef enum : NSUInteger {
     //向内缩放
     ZLFlowChartAnimationZoomIn = 1 << 3,
     //向外缩放
-    ZLFlowChartAnimationZoomOut = 1 << 4,
+    ZLFlowChartAnimationZoomOut = 1 << 4
 } ZLFlowChartAnimationType;
 
 @interface ZLFlowChart : UIView
