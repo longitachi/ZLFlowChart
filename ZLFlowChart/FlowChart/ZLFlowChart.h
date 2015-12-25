@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef enum : NSUInteger {
+typedef NS_OPTIONS(NSUInteger, ZLFlowChartAnimationType) {
     //无动画
     ZLFlowChartAnimationNone = 1 << 0,
     //渐隐
@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
     ZLFlowChartAnimationZoomIn = 1 << 3,
     //向外缩放
     ZLFlowChartAnimationZoomOut = 1 << 4
-} ZLFlowChartAnimationType;
+};
 
 @interface ZLFlowChart : UIView
 
