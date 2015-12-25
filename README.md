@@ -12,7 +12,7 @@
 ####<a id="动画类型"></a>动画类型
 ```objc
 //支持动画组合
-typedef enum : NSUInteger {
+typedef NS_OPTIONS(NSUInteger, ZLFlowChartAnimationType) {
     //无动画
     ZLFlowChartAnimationNone = 1 << 0,
     //渐隐
@@ -23,7 +23,7 @@ typedef enum : NSUInteger {
     ZLFlowChartAnimationZoomIn = 1 << 3,
     //向外缩放
     ZLFlowChartAnimationZoomOut = 1 << 4
-} ZLFlowChartAnimationType;
+};
 ```
 
 ####<a id="常用Api"></a>常用Api
