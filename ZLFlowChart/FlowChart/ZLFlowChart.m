@@ -21,13 +21,17 @@
 @interface ZLFlowChart () <UITableViewDataSource, UITableViewDelegate>
 {
     UITableView *_tableView;
-    NSInteger _selIndex;
 }
+
+@property (nonatomic, assign) NSInteger selIndex;
 
 @end
 
 @implementation ZLFlowChart
-
+- (void)dealloc
+{
+    NSLog(@"");
+}
 - (instancetype)init
 {
     return [self initWithTitle:nil stepArray:@[] showAnimationType:ZLFlowChartAnimationNone hideAnimationType:ZLFlowChartAnimationNone];
@@ -46,7 +50,7 @@
         self.stepArray = stepArray;
         self.showAnimationType = showAnimationType;
         self.hideAnimationType = hideAnimationType;
-        _selIndex = -1;
+        self.selIndex = -1;
         self.nowStepIndex = -1;
         self.normalColor = [UIColor blackColor];
         self.lineColor = [UIColor darkGrayColor];
@@ -195,9 +199,9 @@
     self.alpha = 0;
     [self removeFromSuperview];
     
-    if (self.handler && _selIndex != -1) {
-        self.handler(_selIndex, self.stepArray[_selIndex]);
-        _selIndex = -1;
+    if (self.handler && self.selIndex != -1) {
+        self.handler(self.selIndex, self.stepArray[self.selIndex]);
+        self.selIndex = -1;
     }
 }
 
@@ -317,9 +321,11 @@
             cell.labMiddleLeft.textColor = cell.labMiddleRight.textColor = self.lineColor;
             
             cell.tag = indexPath.row/2;
+            
             __weak typeof(ZLFlowChart *) weakSelf = self;
+            
             [cell setHandler:^(NSInteger index) {
-                _selIndex = index;
+                weakSelf.selIndex = index;
                 [weakSelf hide];
             }];
             
@@ -346,7 +352,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (self.mode == ZLFlowChartList) {
-        _selIndex = indexPath.row;
+        self.selIndex = indexPath.row;
         [self hide];
     }
 }
