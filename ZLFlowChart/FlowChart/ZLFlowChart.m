@@ -79,7 +79,7 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.tableFooterView = [[UIView alloc] init];
     
-    
+    [self setFlowChartTitle];
     [self addSubview:_tableView];
 }
 
