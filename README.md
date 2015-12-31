@@ -1,15 +1,26 @@
 # ZLFlowChart
 * 实用流程图，多种动画效果
   * [效果图] (#效果图)
+  * [显示模式] (#显示模式)
   * [支持的动画类型] (#动画类型)
   * [常用Api] (#常用Api)
   * [使用方法] (#使用方法)
 
 
 ####<a id="效果图"></a>效果图
-![image](https://github.com/longitachi/ZLFlowChart/blob/master/效果图/default.png)
+![image](https://github.com/longitachi/ZLFlowChart/blob/master/效果图/defalut.png)
 ![image](https://github.com/longitachi/ZLFlowChart/blob/master/效果图/list.png)
 ![image](https://github.com/longitachi/ZLFlowChart/blob/master/效果图/两种模式效果图.gif)
+
+####<a id="显示模式"></a>显示模式
+```objc
+typedef NS_OPTIONS(NSUInteger, ZLFlowChartMode) {
+    //默认模式
+    ZLFlowChartDefault,
+    //列表模式
+    ZLFlowChartList,
+};
+```
 
 ####<a id="动画类型"></a>动画类型
 ```objc
@@ -65,7 +76,7 @@ typedef NS_OPTIONS(NSUInteger, ZLFlowChartAnimationType) {
 ```objc
 #import "ZLFlowChart.h"
 
-ZLFlowChart *flowChart = [[ZLFlowChart alloc] initWithTitle:@"test" stepArray:@[@"第1步", @"第2步", @"第3步", @"第4步", @"第5步", @"第6步", @"第7步", @"第8步", @"第9步", @"第10步"] showAnimationType:ZLFlowChartAnimationRotation | ZLFlowChartAnimationZoomIn hideAnimationType:ZLFlowChartAnimationZoomOut | ZLFlowChartAnimationFade];
+ZLFlowChart *flowChart = [[ZLFlowChart alloc] initWithTitle:@"test" stepArray:@[@"第1步", @"第2步", @"第3步", @"第4步", @"第5步(标题最多支持两行显示)", @"第6步", @"第7步", @"第8步", @"第9步", @"第10步"] showAnimationType:ZLFlowChartAnimationRotation | ZLFlowChartAnimationZoomIn hideAnimationType:ZLFlowChartAnimationZoomOut | ZLFlowChartAnimationFade];
     //设置点击回调
 [flowChart setHandler:^(NSInteger index) {
     NSLog(@"选中的步骤:%ld", index);
