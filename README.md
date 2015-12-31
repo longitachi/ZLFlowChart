@@ -7,7 +7,9 @@
 
 
 ####<a id="效果图"></a>效果图
-![image](https://github.com/longitachi/ZLFlowChart/blob/master/效果图/展示及隐藏效果图.gif)
+![image](https://github.com/longitachi/ZLFlowChart/blob/master/效果图/default.png)
+![image](https://github.com/longitachi/ZLFlowChart/blob/master/效果图/list.png)
+![image](https://github.com/longitachi/ZLFlowChart/blob/master/效果图/两种模式效果图.gif)
 
 ####<a id="动画类型"></a>动画类型
 ```objc
