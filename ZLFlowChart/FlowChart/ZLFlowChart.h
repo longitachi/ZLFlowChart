@@ -10,6 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_OPTIONS(NSUInteger, ZLFlowChartMode) {
+    ZLFlowChartDefault,
+    ZLFlowChartList,
+};
+
 typedef NS_OPTIONS(NSUInteger, ZLFlowChartAnimationType) {
     //无动画
     ZLFlowChartAnimationNone = 1 << 0,
@@ -25,10 +30,12 @@ typedef NS_OPTIONS(NSUInteger, ZLFlowChartAnimationType) {
 
 @interface ZLFlowChart : UIView
 
+@property (nonatomic, assign) ZLFlowChartMode mode;
+
 /**
  * 流程图标题
  */
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy, nullable) NSString *title;
 
 /**
  * 流程图数据源
@@ -36,19 +43,20 @@ typedef NS_OPTIONS(NSUInteger, ZLFlowChartAnimationType) {
 @property (nonatomic, strong) NSArray<NSString *> *stepArray;
 
 /**
- * 流程图左侧指示线的颜色
- * 默认 orange color
+ * 流程图默认模式下箭头颜色
+ * 流程图列表模式下左侧指示线的颜色
+ * 默认 lightGray color
  */
 @property (nonatomic, assign) UIColor *lineColor;
 
 /**
- * 表格未选中行标题默认颜色
+ * 流程图非当前step的默认颜色
  * 默认 black color
  */
 @property (nonatomic, assign) UIColor *normalColor;
 
 /**
- * 表格选中行标题高亮颜色
+ * 流程图当前step的高亮颜色
  * 默认 orange color
  */
 @property (nonatomic, assign) UIColor *highlightedColor;
@@ -71,7 +79,7 @@ typedef NS_OPTIONS(NSUInteger, ZLFlowChartAnimationType) {
 /**
  * call back
  */
-@property (nonatomic, copy) void (^handler)(NSInteger);
+@property (nonatomic, copy) void (^handler)(NSInteger index, NSString *selStepTitle);
 
 
 - (instancetype)initWithFrame:(CGRect)frame NS_UNAVAILABLE;

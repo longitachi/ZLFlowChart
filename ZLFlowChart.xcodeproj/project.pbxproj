@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD1C02561C33A3B500F3D40D /* ZLFlowChartCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1C02541C33A3B500F3D40D /* ZLFlowChartCell2.m */; };
+		FD1C02571C33A3B500F3D40D /* ZLFlowChartCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD1C02551C33A3B500F3D40D /* ZLFlowChartCell2.xib */; };
+		FD1C025B1C33DA7000F3D40D /* ZLSpaceArrowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FD1C02591C33DA7000F3D40D /* ZLSpaceArrowCell.m */; };
+		FD1C025C1C33DA7000F3D40D /* ZLSpaceArrowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD1C025A1C33DA7000F3D40D /* ZLSpaceArrowCell.xib */; };
 		FD2A06C41C279511001001B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06C31C279511001001B0 /* main.m */; };
 		FD2A06C71C279511001001B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06C61C279511001001B0 /* AppDelegate.m */; };
 		FD2A06CA1C279511001001B0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2A06C91C279511001001B0 /* ViewController.m */; };
@@ -19,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD1C02531C33A3B500F3D40D /* ZLFlowChartCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLFlowChartCell2.h; sourceTree = "<group>"; };
+		FD1C02541C33A3B500F3D40D /* ZLFlowChartCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLFlowChartCell2.m; sourceTree = "<group>"; };
+		FD1C02551C33A3B500F3D40D /* ZLFlowChartCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLFlowChartCell2.xib; sourceTree = "<group>"; };
+		FD1C02581C33DA7000F3D40D /* ZLSpaceArrowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSpaceArrowCell.h; sourceTree = "<group>"; };
+		FD1C02591C33DA7000F3D40D /* ZLSpaceArrowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSpaceArrowCell.m; sourceTree = "<group>"; };
+		FD1C025A1C33DA7000F3D40D /* ZLSpaceArrowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZLSpaceArrowCell.xib; sourceTree = "<group>"; };
 		FD2A06BF1C279511001001B0 /* ZLFlowChart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZLFlowChart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD2A06C31C279511001001B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FD2A06C51C279511001001B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,6 +106,12 @@
 				FD2A06E21C27AFAA001001B0 /* ZLFlowChartCell.h */,
 				FD2A06E31C27AFAA001001B0 /* ZLFlowChartCell.m */,
 				FD2A06E41C27AFAA001001B0 /* ZLFlowChartCell.xib */,
+				FD1C02531C33A3B500F3D40D /* ZLFlowChartCell2.h */,
+				FD1C02541C33A3B500F3D40D /* ZLFlowChartCell2.m */,
+				FD1C02551C33A3B500F3D40D /* ZLFlowChartCell2.xib */,
+				FD1C02581C33DA7000F3D40D /* ZLSpaceArrowCell.h */,
+				FD1C02591C33DA7000F3D40D /* ZLSpaceArrowCell.m */,
+				FD1C025A1C33DA7000F3D40D /* ZLSpaceArrowCell.xib */,
 			);
 			path = FlowChart;
 			sourceTree = "<group>";
@@ -157,9 +173,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1C025C1C33DA7000F3D40D /* ZLSpaceArrowCell.xib in Resources */,
 				FD2A06E61C27AFAA001001B0 /* ZLFlowChartCell.xib in Resources */,
 				FD2A06D21C279511001001B0 /* LaunchScreen.storyboard in Resources */,
 				FD2A06CF1C279511001001B0 /* Assets.xcassets in Resources */,
+				FD1C02571C33A3B500F3D40D /* ZLFlowChartCell2.xib in Resources */,
 				FD2A06CD1C279511001001B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,7 +189,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1C025B1C33DA7000F3D40D /* ZLSpaceArrowCell.m in Sources */,
 				FD2A06DC1C27956D001001B0 /* ZLFlowChart.m in Sources */,
+				FD1C02561C33A3B500F3D40D /* ZLFlowChartCell2.m in Sources */,
 				FD2A06E51C27AFAA001001B0 /* ZLFlowChartCell.m in Sources */,
 				FD2A06CA1C279511001001B0 /* ViewController.m in Sources */,
 				FD2A06C71C279511001001B0 /* AppDelegate.m in Sources */,

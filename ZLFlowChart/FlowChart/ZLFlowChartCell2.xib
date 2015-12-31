@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ZLFlowChartCell2" rowHeight="50" id="KGk-i7-Jjw" customClass="ZLFlowChartCell2">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NTO-Rq-bLA">
+                        <rect key="frame" x="5" y="5" width="90" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="促销人员拜访">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JJJ-J1-vEB">
+                        <rect key="frame" x="95" y="20" width="20" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="WHD-Lu-VZt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YXX-BB-4Ou">
+                        <rect key="frame" x="115" y="5" width="90" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="促销人员拜访">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="→" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbW-jo-BZD">
+                        <rect key="frame" x="205" y="20" width="20" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="KoC-SB-EkO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxf-Bx-4kS">
+                        <rect key="frame" x="225" y="5" width="90" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title="促销人员拜访">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="rxf-Bx-4kS" secondAttribute="bottom" constant="5" id="FDs-MK-15n"/>
+                    <constraint firstItem="YXX-BB-4Ou" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Gpe-0W-GT7"/>
+                    <constraint firstItem="rxf-Bx-4kS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="J31-Jg-haX"/>
+                    <constraint firstAttribute="bottom" secondItem="YXX-BB-4Ou" secondAttribute="bottom" constant="5" id="OhT-Dq-rwc"/>
+                    <constraint firstItem="YXX-BB-4Ou" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="W7h-wI-oGK"/>
+                    <constraint firstItem="YXX-BB-4Ou" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="bND-F3-nob"/>
+                    <constraint firstItem="gbW-jo-BZD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bfh-zn-pdU"/>
+                    <constraint firstItem="JJJ-J1-vEB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c3W-vN-dqg"/>
+                    <constraint firstAttribute="trailing" secondItem="rxf-Bx-4kS" secondAttribute="trailing" constant="5" id="eNs-9B-Nhb"/>
+                    <constraint firstItem="NTO-Rq-bLA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="ewB-bA-Th1"/>
+                    <constraint firstItem="NTO-Rq-bLA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="hEn-tS-wrQ"/>
+                    <constraint firstItem="rxf-Bx-4kS" firstAttribute="width" secondItem="YXX-BB-4Ou" secondAttribute="width" id="iJh-mT-jlW"/>
+                    <constraint firstItem="gbW-jo-BZD" firstAttribute="leading" secondItem="YXX-BB-4Ou" secondAttribute="trailing" id="k29-O8-xSf"/>
+                    <constraint firstItem="JJJ-J1-vEB" firstAttribute="leading" secondItem="NTO-Rq-bLA" secondAttribute="trailing" id="l4C-GD-xbD"/>
+                    <constraint firstItem="rxf-Bx-4kS" firstAttribute="leading" secondItem="gbW-jo-BZD" secondAttribute="trailing" id="lQe-hg-m8Z"/>
+                    <constraint firstAttribute="bottom" secondItem="NTO-Rq-bLA" secondAttribute="bottom" constant="5" id="tkd-fk-WpZ"/>
+                    <constraint firstItem="YXX-BB-4Ou" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.28" id="udH-Ys-8MA"/>
+                    <constraint firstItem="NTO-Rq-bLA" firstAttribute="width" secondItem="YXX-BB-4Ou" secondAttribute="width" id="xAD-iX-r83"/>
+                    <constraint firstItem="YXX-BB-4Ou" firstAttribute="leading" secondItem="JJJ-J1-vEB" secondAttribute="trailing" id="xkM-pF-nXS"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="W7h-wI-oGK"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnLeft" destination="NTO-Rq-bLA" id="LMu-s5-zxw"/>
+                <outlet property="btnMiddle" destination="YXX-BB-4Ou" id="Pu3-KD-OX0"/>
+                <outlet property="btnRight" destination="rxf-Bx-4kS" id="hQe-aJ-92b"/>
+                <outlet property="labMiddleLeft" destination="JJJ-J1-vEB" id="nUG-7g-LLu"/>
+                <outlet property="labMiddleRight" destination="gbW-jo-BZD" id="2Jx-cn-Q1n"/>
+            </connections>
+            <point key="canvasLocation" x="90" y="194"/>
+        </tableViewCell>
+    </objects>
+</document>

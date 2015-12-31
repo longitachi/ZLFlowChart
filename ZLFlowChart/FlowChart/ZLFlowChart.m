@@ -8,6 +8,8 @@
 
 #import "ZLFlowChart.h"
 #import "ZLFlowChartCell.h"
+#import "ZLFlowChartCell2.h"
+#import "ZLSpaceArrowCell.h"
 
 #define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 
@@ -39,6 +41,7 @@
 - (instancetype)initWithTitle:(NSString *)title stepArray:(NSArray<NSString *> *)stepArray showAnimationType:(ZLFlowChartAnimationType)showAnimationType hideAnimationType:(ZLFlowChartAnimationType)hideAnimationType
 {
     if (self = [super init]) {
+        self.mode = ZLFlowChartDefault;
         self.title = title;
         self.stepArray = stepArray;
         self.showAnimationType = showAnimationType;
@@ -46,7 +49,8 @@
         _selIndex = -1;
         self.nowStepIndex = -1;
         self.normalColor = [UIColor blackColor];
-        self.lineColor = self.highlightedColor = [UIColor orangeColor];
+        self.lineColor = [UIColor darkGrayColor];
+        self.highlightedColor = [UIColor orangeColor];
         [self creatFlowChart];
     }
     return self;
@@ -74,15 +78,7 @@
     _tableView.layer.cornerRadius = 5.0f;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.tableFooterView = [[UIView alloc] init];
-    if (self.title.length > 0) {
-        _tableView.tableHeaderView = ({
-            UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kViewWidth-40, 30)];
-            lable.backgroundColor = RGB(240, 240, 240);
-            lable.textAlignment = NSTextAlignmentCenter;
-            lable.text = self.title;
-            lable;
-        });
-    }
+    
     
     [self addSubview:_tableView];
 }
@@ -92,13 +88,40 @@
     [self hide];
 }
 
+- (void)setFlowChartTitle
+{
+    _tableView.tableHeaderView = nil;
+    if (self.title.length > 0) {
+        _tableView.tableHeaderView = ({
+            UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, kViewWidth-40, 30)];
+            lable.backgroundColor = RGB(240, 240, 240);
+            lable.textAlignment = NSTextAlignmentCenter;
+            lable.text = self.title;
+            lable;
+        });
+    }
+}
+
+- (void)setTitle:(NSString *)title
+{
+    _title = title;
+    [self setFlowChartTitle];
+}
+
 #pragma mark - 显示/隐藏
 - (void)show
 {
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     
-    if (self.nowStepIndex != -1) {
-        [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.nowStepIndex inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+    [_tableView reloadData];
+    
+    //滚动到当前选中下标
+    if (self.nowStepIndex != -1 && self.nowStepIndex < self.stepArray.count) {
+        if (self.mode == ZLFlowChartList) {
+            [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.nowStepIndex inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+        } else {
+            [_tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.nowStepIndex/3*2 inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
+        }
     }
     
     if (self.showAnimationType == 0 || self.showAnimationType & ZLFlowChartAnimationNone) {
@@ -173,7 +196,7 @@
     [self removeFromSuperview];
     
     if (self.handler && _selIndex != -1) {
-        self.handler(_selIndex);
+        self.handler(_selIndex, self.stepArray[_selIndex]);
         _selIndex = -1;
     }
 }
@@ -234,44 +257,98 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.stepArray.count;
+    if (self.mode == ZLFlowChartList) {
+        return self.stepArray.count;
+    } else {
+        return 2*ceilf(self.stepArray.count/3.0)-1;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.mode == ZLFlowChartList) {
+        return 44;
+    } else {
+        if (indexPath.row % 2 == 0) {
+            return 50;
+        } else {
+            return 30;
+        }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZLFlowChartCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZLFlowChartCell"];
-    if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ZLFlowChartCell" owner:self options:nil] lastObject];
-    }
-    cell.labTopLine.backgroundColor = cell.labCircle.backgroundColor = cell.labBottomLine.backgroundColor = self.lineColor;
-    
-    cell.labTitle.text = [NSString stringWithFormat:@"%ld: %@", indexPath.row+1, self.stepArray[indexPath.row]];
-    
-    if (indexPath.row == 0) {
-        cell.labTopLine.hidden = YES;
+    if (self.mode == ZLFlowChartList) {
+        ZLFlowChartCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZLFlowChartCell"];
+        if (!cell) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ZLFlowChartCell" owner:self options:nil] lastObject];
+        }
+        cell.labTopLine.backgroundColor = cell.labCircle.backgroundColor = cell.labBottomLine.backgroundColor = self.lineColor;
+        
+        cell.labTitle.text = [NSString stringWithFormat:@"%ld: %@", indexPath.row+1, self.stepArray[indexPath.row]];
+        
+        if (indexPath.row == 0) {
+            cell.labTopLine.hidden = YES;
+        } else {
+            cell.labTopLine.hidden = NO;
+        }
+        if (indexPath.row == self.stepArray.count - 1) {
+            cell.labBottomLine.hidden = YES;
+        } else {
+            cell.labBottomLine.hidden = NO;
+        }
+        
+        if (indexPath.row == self.nowStepIndex) {
+            cell.labTitle.textColor = self.highlightedColor;
+        } else {
+            cell.labTitle.textColor = self.normalColor;
+        }
+        
+        return cell;
     } else {
-        cell.labTopLine.hidden = NO;
+        if (indexPath.row % 2 == 0) {
+            //ZLFlowChartDefault
+            ZLFlowChartCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"ZLFlowChartCell2"];
+            if (!cell) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"ZLFlowChartCell2" owner:self options:nil] lastObject];
+            }
+            
+            cell.labMiddleLeft.textColor = cell.labMiddleRight.textColor = self.lineColor;
+            
+            cell.tag = indexPath.row/2;
+            __weak typeof(ZLFlowChart *) weakSelf = self;
+            [cell setHandler:^(NSInteger index) {
+                _selIndex = index;
+                [weakSelf hide];
+            }];
+            
+            NSInteger length = (self.stepArray.count-indexPath.row/2*3);
+            length = length > 3 ? 3 : length;
+            NSArray *arr = [self.stepArray objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(indexPath.row/2*3, length)]];
+            
+            [cell showTitleArray:arr reverse:!((indexPath.row/2)%2==0)];
+            [cell setSelectStepIndex:self.nowStepIndex normalColor:self.normalColor highlightedColor:self.highlightedColor];
+            
+            return cell;
+        } else {
+            ZLSpaceArrowCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZLSpaceArrowCell"];
+            if (!cell) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"ZLSpaceArrowCell" owner:self options:nil] lastObject];
+            }
+            [cell showArrowWithIndexPathRow:indexPath.row];
+            return cell;
+        }
     }
-    if (indexPath.row == self.stepArray.count - 1) {
-        cell.labBottomLine.hidden = YES;
-    } else {
-        cell.labBottomLine.hidden = NO;
-    }
-    
-    if (indexPath.row == self.nowStepIndex) {
-        cell.labTitle.textColor = self.highlightedColor;
-    } else {
-        cell.labTitle.textColor = self.normalColor;
-    }
-    
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _selIndex = indexPath.row;
-    [self hide];
+    if (self.mode == ZLFlowChartList) {
+        _selIndex = indexPath.row;
+        [self hide];
+    }
 }
 
 @end
