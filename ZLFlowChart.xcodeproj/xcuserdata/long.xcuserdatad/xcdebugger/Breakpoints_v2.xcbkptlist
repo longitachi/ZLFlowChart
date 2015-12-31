@@ -26,7 +26,7 @@
                   moduleName = "ZLFlowChart"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/long/Desktop/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E5%B7%B1%E5%B0%81%E8%A3%85%E7%9A%84%E5%AE%9E%E7%94%A8%E5%BA%93/ZLFlowChart/ZLFlowChart/ViewController.m"
-                  timestampString = "473237096.410316"
+                  timestampString = "473237648.053151"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -41,7 +41,7 @@
                   moduleName = "ZLFlowChart"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/long/Desktop/%E5%AD%A6%E4%B9%A0/%E8%87%AA%E5%B7%B1%E5%B0%81%E8%A3%85%E7%9A%84%E5%AE%9E%E7%94%A8%E5%BA%93/ZLFlowChart/ZLFlowChart/ViewController.m"
-                  timestampString = "473237096.410516"
+                  timestampString = "473237648.053371"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZLFlowChart/FlowChart/ZLFlowChart.m"
-            timestampString = "473237096.355544"
+            timestampString = "473237502.699985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "-show"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZLFlowChart/FlowChart/ZLFlowChart.m"
-            timestampString = "473237096.355544"
+            timestampString = "473237502.699985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "-done"
             landmarkType = "5">
          </BreakpointContent>
@@ -86,7 +86,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ZLFlowChart/FlowChart/ZLFlowChartCell2.m"
@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
-            landmarkName = "-dealloc"
+            landmarkName = "-awakeFromNib"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
